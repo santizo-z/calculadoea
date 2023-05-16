@@ -1,7 +1,7 @@
 const display = document.getElementById('display');
 const historyContainer = document.getElementById('history');
 const buttons = [
-  ['AC', 'C', '/', 'X'],
+  ['AC', 'C', '/', '*'],
   ['9', '8', '7', '-'],
   ['6', '5', '4', '+'],
   ['3', '2', '1', '0'],
