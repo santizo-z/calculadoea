@@ -2,17 +2,17 @@ body{
     background-color: rgb(61, 59, 59);
 }
 .calculator {
-    width: 200px;
+    width: 100%;
+    max-width: 320px;
     margin: 0 auto;
     text-align: center;
-    
   }
   
   #display {
     width: 100%;
     margin-bottom: 10px;
     padding: 5px;
-    font-size: 25px;
+    font-size: 24px;
     border: 1px solid black;
     font-family: 'Inter', sans-serif;
     font-family: 'Roboto', sans-serif;
@@ -27,21 +27,19 @@ body{
   .button-row {
     display: flex;
     justify-content: center;
-    
   }
   
   button {
-    width: 55px;
-    height: 55px;
-    font-size: 16px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
     margin: 5px;
     background-color: rgb(243, 162, 11);
     font-family: 'Inter', sans-serif;
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
-    
   }
-.titulo{
+  .titulo{
     display: flex;
     justify-content: center;
     background-color: white;
@@ -49,5 +47,5 @@ body{
     font-family: 'Inter', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
-
+  
   

@@ -1,11 +1,11 @@
 const display = document.getElementById('display');
 const historyContainer = document.getElementById('history');
 const buttons = [
-  ['AC', 'C', '/', '*'],
-  ['9', '8', '7', '-'],
-  ['6', '5', '4', '+'],
-  ['3', '2', '1', '0'],
-  ['.', '=']
+    ['AC', 'C', '/', '*'],
+    ['9', '8', '7', '-'],
+    ['6', '5', '4', '+'],
+    ['3', '2', '1', '0'],
+    ['.', '=']
 ];
 let history = [];
 
@@ -19,7 +19,7 @@ function calculate() {
     try {
       const result = eval(expression);
       display.value = result;
-      history.push(expression + ' = ' + result);
+      history.push({ expression: expression, result: result });
       updateHistory();
     } catch (error) {
       display.value = 'Error';
@@ -37,11 +37,30 @@ function clearAll() {
   updateHistory();
 }
 
+function deleteHistoryItem(index) {
+  history.splice(index, 1);
+  updateHistory();
+  display.value = '';
+}
+
 function updateHistory() {
   historyContainer.innerHTML = '';
   for (let i = history.length - 1; i >= 0; i--) {
-    const item = document.createElement('p');
-    item.textContent = history[i];
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    const expression = document.createElement('span');
+    expression.textContent = history[i].expression;
+    const result = document.createElement('span');
+    result.textContent = history[i].result;
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'delete-button';
+    deleteButton.textContent = 'X';
+    deleteButton.addEventListener('click', function() {
+      deleteHistoryItem(i);
+    });
+    item.appendChild(expression);
+    item.appendChild(result);
+    item.appendChild(deleteButton);
     historyContainer.appendChild(item);
   }
 }
